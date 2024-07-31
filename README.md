@@ -1,5 +1,6 @@
 # Radial Dungeon Generator
-[![Made with Godot 4.2.1](https://img.shields.io/badge/Made%20with-Godot-478CBF?style=flat&logo=godot%20engine&logoColor=white)](https://godotengine.org)
+[![Godot 4.2.1](https://img.shields.io/badge/Godot-4.2.1-478CBF?style=flat&logo=godot%20engine&logoColor=white)](https://godotengine.org)
+
 This project includes both the functionality as well as a sample implementation scene demonstrated in the `samples/` folder. Simply launch the `EXAMPLE_GAME` scene to test. `WASD` moves the "player" square around, `=` and `-` zoom the camera in and out.
 
 The project features setting a variety of "tiles" from a random set at different radial distances from a center point in a predefined, square grid, and will also place predetermined "points of interest" at a random place a certain radial distance away from the center point.
