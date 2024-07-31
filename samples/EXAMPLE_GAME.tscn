@@ -1,0 +1,61 @@
+[gd_scene load_steps=19 format=3 uid="uid://cbdhm4f2y84s8"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_lradx"]
+[ext_resource type="PackedScene" uid="uid://cgtcj3eu0sny7" path="res://map_generator.tscn" id="2_g6xjh"]
+[ext_resource type="PackedScene" uid="uid://cme4gfi16u8tp" path="res://samples/rooms/BlueRoom.tscn" id="3_a28mf"]
+[ext_resource type="Script" path="res://RoomGroup.gd" id="4_ut0ew"]
+[ext_resource type="PackedScene" uid="uid://dlajn8d3ner4h" path="res://samples/rooms/GreenRoom.tscn" id="5_no87o"]
+[ext_resource type="PackedScene" uid="uid://b82b5mdjbr8ui" path="res://samples/rooms/RedRoom.tscn" id="6_8rx1l"]
+[ext_resource type="PackedScene" uid="uid://lrt3hlwv8sow" path="res://samples/rooms/YellowRoom.tscn" id="7_i05fs"]
+[ext_resource type="Script" path="res://POIRoomGroup.gd" id="8_rrxv8"]
+[ext_resource type="Script" path="res://TileGrid.gd" id="9_gp3y7"]
+[ext_resource type="PackedScene" uid="uid://dxik64yyii5cw" path="res://samples/Player.tscn" id="10_swlts"]
+[ext_resource type="Script" path="res://samples/Camera2D.gd" id="11_cwo1v"]
+
+[sub_resource type="Resource" id="Resource_k5ss4"]
+script = ExtResource("4_ut0ew")
+radiusRange = Vector2i(1, 4)
+roomOptions = Array[PackedScene]([ExtResource("3_a28mf")])
+
+[sub_resource type="Resource" id="Resource_afg2v"]
+script = ExtResource("4_ut0ew")
+radiusRange = Vector2i(4, 7)
+roomOptions = Array[PackedScene]([ExtResource("5_no87o")])
+
+[sub_resource type="Resource" id="Resource_j4e4w"]
+script = ExtResource("4_ut0ew")
+radiusRange = Vector2i(7, 10)
+roomOptions = Array[PackedScene]([ExtResource("6_8rx1l")])
+
+[sub_resource type="Resource" id="Resource_tjhx5"]
+script = ExtResource("8_rrxv8")
+radiusRange = Vector2i(9, 9)
+roomOptions = Array[PackedScene]([ExtResource("7_i05fs")])
+
+[sub_resource type="Resource" id="Resource_83sug"]
+script = ExtResource("8_rrxv8")
+radiusRange = Vector2i(3, 3)
+roomOptions = Array[PackedScene]([ExtResource("7_i05fs")])
+
+[sub_resource type="Resource" id="Resource_e7j8p"]
+script = ExtResource("8_rrxv8")
+radiusRange = Vector2i(12, 13)
+roomOptions = Array[PackedScene]([ExtResource("7_i05fs")])
+
+[sub_resource type="Resource" id="Resource_2nfhy"]
+script = ExtResource("9_gp3y7")
+tileSize = 256
+gridDimensions = Vector2i(27, 27)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_lradx")
+
+[node name="MapGenerator" parent="." instance=ExtResource("2_g6xjh")]
+roomGroups = Array[ExtResource("4_ut0ew")]([SubResource("Resource_k5ss4"), SubResource("Resource_afg2v"), SubResource("Resource_j4e4w")])
+POIRoomGroups = Array[ExtResource("8_rrxv8")]([SubResource("Resource_tjhx5"), SubResource("Resource_83sug"), SubResource("Resource_e7j8p")])
+grid = SubResource("Resource_2nfhy")
+
+[node name="Player" parent="." instance=ExtResource("10_swlts")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+script = ExtResource("11_cwo1v")

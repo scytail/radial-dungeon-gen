@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlajn8d3ner4h"]
+
+[ext_resource type="Script" path="res://samples/rooms/Room.gd" id="1_aaba3"]
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_aaba3")
+lockRed = true
+lockBlue = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 256.0
+offset_bottom = 256.0
+color = Color(0, 1, 0, 1)
