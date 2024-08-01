@@ -40,7 +40,7 @@ func _selectPOIRoom(placementTile: Vector2i) -> PackedScene:
 	return null
 
 func _spawnRoom(room: PackedScene, topLeftTileCoordinate: Vector2i):
-	var roomInstance: Room = room.instantiate()
+	var roomInstance: Node = room.instantiate()
 	roomInstance.position = topLeftTileCoordinate * grid.tileSize
 	# TODO: rotate room
 	add_sibling(roomInstance)
